@@ -1,0 +1,22 @@
+name: Testes C
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+      - name: Compilar e testar
+        run: |
+          make
+          make test
+      - name: Verificar entrada invalida
+        run: |
+          if printf '%s\n' '-1' | ./bin/ordenacao quick; then
+            echo 'Era esperado rejeitar tamanho negativo.'
+            exit 1
+          fi

@@ -1,0 +1,10 @@
+# Arquivos compilados e resultados locais
+/bin/
+/build/
+/resultados/
+*.o
+*.out
+
+# Python usado apenas para os graficos
+__pycache__/
+.venv/
